@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="sec" constructor="ValidadorChecklist" version="1.0.6" display-name-key="Validador de Checklist" description-key="Botón para validar y finalizar el checklist" control-type="standard" >
+  <control namespace="sec" constructor="ValidadorChecklist" version="1.0.13" display-name-key="Validador de Checklist" description-key="Botón para validar y finalizar el checklist" control-type="standard" >
     <external-service-usage enabled="false">
     </external-service-usage>
     
+    <property name="modoValidacion" display-name-key="Modo de Validación" description-key="Selecciona el comportamiento (PCI o SE)" of-type="Enum" usage="input" required="true">
+      <value name="PCI" display-name-key="PCI">PCI</value>
+      <value name="SE" display-name-key="SE">SE</value>
+    </property>
+
     <property name="estadoChecklist" display-name-key="Estado Checklist" description-key="Vincular al campo sec_estadochecklist" of-type="OptionSet" usage="bound" required="true" />
     
-    <property name="camposRequeridos1" display-name-key="Campos Requeridos (Parte 1)" description-key="Ej: sec_panelmarca,sec_panelmodelo" of-type="SingleLine.Text" usage="input" required="true" />
-    <property name="camposRequeridos2" display-name-key="Campos Requeridos (Parte 2)" description-key="Continúa aquí si superas los 100 caracteres" of-type="SingleLine.Text" usage="input" required="false" />
-    <property name="camposRequeridos3" display-name-key="Campos Requeridos (Parte 3)" description-key="Continúa aquí si superas los 100 caracteres" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="camposRequeridos1" display-name-key="Campos Requeridos PCI (Parte 1)" description-key="Ej: sec_panelmarca,sec_panelmodelo" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="camposRequeridos2" display-name-key="Campos Requeridos PCI (Parte 2)" description-key="Continúa aquí si superas los 100 caracteres" of-type="SingleLine.Text" usage="input" required="false" />
+    <property name="camposRequeridos3" display-name-key="Campos Requeridos PCI (Parte 3)" description-key="Continúa aquí si superas los 100 caracteres" of-type="SingleLine.Text" usage="input" required="false" />
     
+    <property name="campoMultilineaSE" display-name-key="Campo Multilínea (Modo SE)" description-key="Selecciona el campo multilínea del formulario" of-type="Multiple" usage="bound" required="false" />
+
     <resources>
       <code path="index.ts" order="1"/>
     </resources>
